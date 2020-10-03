@@ -1,16 +1,13 @@
 import random
 import time
 
-n = int(random.randint(0, 100))  # The Number to be guessed
+n = int(random.randint(0, 100)) 
 
 print("You Have Decided to play the most interesting game, i.e, Guess the Number Game.")
 time.sleep(2)
 
 
 def eHighscore():
-    """
-    This function holds the code for creating a hish score file and storing the game results of users on selecting 'easy' level
-    """
 
     f = open("eHighscore.txt", "a")
     f.write(eScore)
@@ -23,9 +20,6 @@ def eHighscore():
     f.close()
 
 def mHighscore():
-    """
-    This function holds the code for creating a hish score file and storing the game results of users on selecting 'medium' level
-    """
 
     f = open("mHighscore.txt", "a")
     f.write(mScore)
@@ -38,9 +32,6 @@ def mHighscore():
     f.close()
 
 def hHighscore():
-    """
-    This function holds the code for creating a hish score file and storing the game results of users on selecting 'hard' level
-    """
 
     f = open("hHighscore.txt", "a")
     f.write(hScore)
@@ -53,10 +44,7 @@ def hHighscore():
     f.close()
 
 def final():
-    """
-    This function is created to ask user if he wants to play again or quit after playing it once
-    """
-
+    
     last = input(
         "If you want to continue playing, type 'Play' or if you want to quit, type 'Quit' : ")
     last = last.capitalize()
@@ -68,19 +56,14 @@ def final():
         exit()
 
 def mMenu():
-    """
-    This Function is the main menu of the game and user can either schoose to play the game or view the rules of the game in this menu and can finally get redirected to the part where they choose their level --> ( cDifficulty function)
-    """
-
+    
     menu = input(
         "Type and enter an option from the following --> 'Play' or 'Rules' : ")
     menu = menu.capitalize()
 
-    # Take action based on user input
     if menu == "Play":
-        cDifficulty()  # cDifficulty function is called if user decides to play
+        cDifficulty()  
 
-    # Rules of the game
     if menu == "Rules":
         time.sleep(0.5)
         print("Rules are as Follows :")
@@ -98,7 +81,6 @@ def mMenu():
             "That's it. Type and Enter 'Play' if you want to start the game or Type and Enter 'Back' if you want to go to main menu : ")
         rMenu = rMenu.capitalize()
 
-        # Take action based on user input
         if rMenu == "Play":
             cDifficulty()
 
@@ -106,9 +88,6 @@ def mMenu():
             mMenu()
 
 def cDifficulty():
-    """
-    This is a function where user selectsthe difficulty level of the game
-    """
 
     time.sleep(0.5)
     print("Choose a Difficulty Level")
@@ -119,22 +98,16 @@ def cDifficulty():
     level = input("Enter Chosen Difficulty Level if you are ready : ")
     level = level.capitalize()
 
-    # If level selected is easy --> run the code (lvlEasy) for easy level
     if level == "Easy":
         lvlEasy()
 
-    # If level selected is medium --> run the code (lvlMedium) for mediun level
     elif level == "Medium":
         lvlMedium()
 
-    # If level selected is hard --> run the code (lvlHard) for hard level
     elif level == "Hard":
         lvlHard()
 
 def lvlEasy():
-    """
-    This function holds main game code if level selected by user is easy
-    """
 
     print("You Have Chosen Easy Difficulty")
     time.sleep(0.5)
@@ -162,19 +135,16 @@ def lvlEasy():
             global eScore
             eScore = str(11 - gEasy)
             print("Congratulations ! You guessed the No. in", eScore, "guesses")
-            eHighscore()  # Executes the high score function
+            eHighscore()  
             time.sleep(1)
-            final()  # Executes the final function
+            final()  
             break
 
     if gEasy == 0:
         print("You Ran out of Guesses. GAME OVER !")
-        final()  # Executes the final function
+        final() 
 
 def lvlMedium():
-    """
-    This function holds main game code if level selected by user is medium
-    """
 
     print("You Have Chosen Medium Difficulty")
     time.sleep(0.5)
@@ -202,18 +172,15 @@ def lvlMedium():
             global mScore
             mScore = str(8 - gMedium)
             print("Congratulations ! You guessed the No. in", mScore, "guesses")
-            mHighscore()  # Executes the high score function
-            final()  # Executes the final function
+            mHighscore() 
+            final()  
             break
 
     if gMedium == 0:
         print("You Ran out of Guesses. GAME OVER !")
-        final()  # Executes the final function
+        final() 
 
 def lvlHard():
-    """
-    This function holds main game code if level selected by user is hard
-    """
 
     print("You Have Chosen Hard Difficulty")
     time.sleep(0.5)
@@ -241,13 +208,13 @@ def lvlHard():
             global hScore
             hScore = str(6 - gHard)
             print("Congratulations ! You guessed the No. in", hScore, "guesses")
-            hHighscore()  # Executes the high score function
-            final()  # Executes the final function
+            hHighscore()  
+            final() 
             break
 
     if gHard == 0:
         print("You Ran out of Guesses. GAME OVER !")
-        final()  # Executes the final function
+        final() 
 
 
-mMenu()  # First Line --> executes the function mMenu
+mMenu() 
